@@ -26,4 +26,7 @@ public class Course {
     @ManyToMany(mappedBy = "courseSet", fetch = FetchType.LAZY)
     private Set<Student>  studentSet;
 
+    public Course(Integer id) {
+        this.id = id;
+    }
 }
