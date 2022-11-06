@@ -15,7 +15,7 @@ public class GenderService {
     @Autowired
     private GenderRepository genderRepository;
 
-    public List<Gender> get(){
+    public List<Gender> getAll(){
         return genderRepository.findAll();
     }
     public Gender get(Integer id){

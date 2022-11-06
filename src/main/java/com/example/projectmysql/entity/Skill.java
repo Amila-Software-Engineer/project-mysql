@@ -13,9 +13,9 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table
-public class Gender {
+public class Skill {
 
-    public Gender(Integer id) {
+    public Skill(Integer id) {
         this.id = id;
     }
 
@@ -25,6 +25,6 @@ public class Gender {
     private String name;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "gender")
+    @ManyToMany(mappedBy = "skillList", fetch = FetchType.LAZY)
     private List<Student> studentList;
 }

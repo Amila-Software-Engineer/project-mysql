@@ -18,7 +18,7 @@ public class GenderController {
 
     @GetMapping
     public List<Gender> get(){
-        return genderService.get();
+        return genderService.getAll();
     }
 
     @GetMapping("/{id}")

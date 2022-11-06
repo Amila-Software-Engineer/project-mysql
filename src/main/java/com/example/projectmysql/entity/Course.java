@@ -1,30 +1,29 @@
 package com.example.projectmysql.entity;
 
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.List;
+import java.util.Set;
 
 @Entity
+@Table
 @Getter
 @Setter
-@NoArgsConstructor
 @AllArgsConstructor
-@Table
-public class Gender {
-
-    public Gender(Integer id) {
-        this.id = id;
-    }
-
+@NoArgsConstructor
+public class Course {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String name;
+
+    private String title;
+    private String abbreviation;
+    private int modules;
+    private double fee;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "gender")
-    private List<Student> studentList;
+    @ManyToMany(mappedBy = "courseSet", fetch = FetchType.LAZY)
+    private Set<Student>  studentSet;
+
 }
